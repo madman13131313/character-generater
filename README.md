@@ -25,21 +25,11 @@ This project is an AI-powered tool for generating game character artwork using t
    ./setup.sh
    ```
 
-   **For Windows:**
-   ```bash
-   setup.bat
-   ```
-
 3. Activate the virtual environment:
    
    **For macOS/Linux:**
    ```bash
    source venv/bin/activate
-   ```
-
-   **For Windows:**
-   ```bash
-   venv\Scripts\activate.bat
    ```
 
 4. Create a `.env` file with your Hugging Face token:
@@ -65,7 +55,6 @@ deactivate
 - `image_utils.py`: Utilities for image processing
 - `requirements.txt`: Project dependencies
 - `setup.sh`: Setup script for macOS/Linux
-- `setup.bat`: Setup script for Windows
 - `README.md`: Project documentation
 
 ## Requirements
