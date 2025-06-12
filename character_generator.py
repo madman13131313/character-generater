@@ -54,13 +54,18 @@ def generate_character(prompt, style=None, num_images=1, output_dir="output"):
     
     # Process and save images
     for i, image in enumerate(images):
-        # Post-process the image
-        processed_image = post_process_image(image)
+        # Save original image
+        original_filename = os.path.join(output_dir, f"character_{timestamp}_{i+1}_original.png")
+        save_image(image, original_filename)
+        print(f"Saved original image to {original_filename}")
         
-        # Save the image with timestamp
-        filename = os.path.join(output_dir, f"character_{timestamp}_{i+1}.png")
-        save_image(processed_image, filename)
-        print(f"Saved image to {filename}")
+        # Process with background removal
+        processed_image = post_process_image(image, remove_bg=True)
+        
+        # Save processed image
+        processed_filename = os.path.join(output_dir, f"character_{timestamp}_{i+1}_nobg.png")
+        save_image(processed_image, processed_filename)
+        print(f"Saved processed image to {processed_filename}")
 
 def main():
     parser = argparse.ArgumentParser(description="Generate game character images using Stable Diffusion")
